@@ -9,7 +9,7 @@ const App = () => {
 
   const [places, setPlaces] = useState([]);
   const [coordinates, setCoordinates] = useState({});
-  const [bounds, setBounds] = useState()
+  const [bounds, setBounds] = useState({})
 
   //just at the beggining, it traps user's geolocalization
   useEffect(() => {
