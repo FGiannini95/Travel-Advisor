@@ -54,16 +54,9 @@ export const PlaceDetails = ({ place, selected, refProp }) => {
         </Box>
         {/* Map for all the awards of each restaurant */}
         {place?.awards?.map((award) => (
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            my={1}
-            alignItems="center"
-          >
+          <Box display="flex" justifyContent="space-between" my={1} alignItems="center">
             <img src={award.images.small} />
-            <Typography variant="subtitle2" color="textSecondary">
-              {award.display_name}
-            </Typography>
+            <Typography variant="subtitle2" color="textSecondary">{award.display_name}</Typography>
           </Box>
         ))}
         {/* Map for the type of cuisine of each restaurant */}

@@ -12,7 +12,7 @@ export const Map = ({ setCoordinates, setBounds, coordinates, places, setChildCl
   return (
     <div className={classes.mapContainer}>
       <GoogleMapReact
-        bootstrapURLkeys={{ key: "AIzaSyAIzFPaMN4cPxlDkY8MH8YiPMuDMWhZJZA" }}
+        bootstrapURLkeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
         defaultCenter={coordinates}
         center={coordinates}
         defaultZoom={14}
@@ -22,7 +22,7 @@ export const Map = ({ setCoordinates, setBounds, coordinates, places, setChildCl
           setCoordinates({ lat: e.center.lat, lng: e.center.lng });
           setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
         }}
-        onChildClick={(child)=>{setChildClicked(child)}}
+        onChildClick={(child) => setChildClicked(child)}
       >
         {/* Show the pins in the map */}
         {places?.length && places.map((place, i) => (

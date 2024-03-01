@@ -11,13 +11,25 @@ import {
 import useStyles from "./styles";
 import { PlaceDetails } from "../PlaceDetails/PlaceDetails";
 
-export const List = ({ places, childClicked, isLoading, type, setType, rating, setRating }) => {
-
+export const List = ({
+  places,
+  childClicked,
+  isLoading,
+  type,
+  setType,
+  rating,
+  setRating,
+}) => {
+  
   const [elRefs, setElRefs] = useState([]);
   const classes = useStyles();
- 
+
   useEffect(() => {
-    setElRefs((refs) => Array(places.length).fill().map((_, i) => refs[i] || createRef()));
+    setElRefs((refs) =>
+      Array(places.length)
+        .fill()
+        .map((_, i) => refs[i] || createRef())
+    );
   }, [places]);
 
   return (
@@ -52,9 +64,9 @@ export const List = ({ places, childClicked, isLoading, type, setType, rating, s
             {places?.map((place, i) => (
               <Grid item key={i} xs={12}>
                 <PlaceDetails
-                  place={place}
                   selected={Number(childClicked) === i}
                   refProp={elRefs[i]}
+                  place={place}
                 />
               </Grid>
             ))}
